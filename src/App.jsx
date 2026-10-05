@@ -41,12 +41,12 @@ export default function Website() {
       hero.to('.hero__media', { scale: 1.12, yPercent: 4, duration: 1 }, 0)
         .to('.hero__word h1', { scale: .76, yPercent: -35, opacity: 0, duration: .65 }, .12)
         .to('.hero__word p,.hero__edition,.hero__scroll,.hero__coordinates', { yPercent: -30, opacity: 0, duration: .45 }, .12)
-        .fromTo('.hero-plate', { yPercent: 115, scale: .72 }, { yPercent: 16, scale: .88, duration: .9, ease: 'power3.out' }, .25)
+        .fromTo('.hero-plate', { y: () => window.innerHeight * .78, scale: .72 }, { y: () => window.innerHeight * .1, scale: .88, duration: .9, ease: 'power3.out' }, .25)
         .to('.hero-utensil--fork', { x: () => document.querySelector('.hero-plate').offsetWidth * -.47, rotation: 0, duration: .72, ease: 'power3.out' }, .78)
         .to('.hero-utensil--knife', { x: () => document.querySelector('.hero-plate').offsetWidth * .47, rotation: 0, duration: .72, ease: 'power3.out' }, .78)
         .to('.hero__curve', { yPercent: -100, duration: .85, ease: 'power3.inOut' }, .88)
         .to('.hero__media,.hero__wash', { opacity: 0, duration: .45 }, 1.18)
-        .to('.hero-plate', { yPercent: 0, scale: 1, duration: .65, ease: 'power2.out' }, 1.15)
+        .to('.hero-plate', { y: 0, scale: 1, duration: .65, ease: 'power2.out' }, 1.15)
       heroChapters.forEach((chapter, i) => {
         const at = 1.7 + i * .78
         hero.fromTo(chapter, { autoAlpha: 0, y: 32 }, { autoAlpha: 1, y: 0, duration: .2 }, at)
