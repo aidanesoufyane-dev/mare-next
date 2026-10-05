@@ -183,8 +183,8 @@ body{min-width:320px}
 .nav__toggle{justify-self:end;align-items:center;gap:11px;padding:12px 14px;text-transform:uppercase;letter-spacing:.14em}
 .nav__toggle i{position:relative;width:22px;height:10px;border-top:1px solid;border-bottom:1px solid}
 
-.hero-plate{width:min(68vw,72svh,720px);left:50%;top:50%;transform:translate(-50%,-50%)}
-.hero-chapter{left:50%;top:50%;width:min(300px,32vw);transform:translate(-50%,-50%);padding:8px;text-wrap:balance}
+.hero-plate{width:min(68vw,72svh,720px);left:50%;top:50%;transform:none}
+.hero-chapter{left:50%;top:50%;width:min(300px,32vw);transform:none;padding:8px;text-wrap:balance}
 .hero-chapter h2{font-size:clamp(52px,6vw,92px);line-height:.84;margin:12px 0 20px}
 .hero-chapter>p:nth-of-type(2){font-size:clamp(11px,.9vw,13px);line-height:1.65}
 .hero-chapter>div{margin-top:clamp(20px,3vh,34px)}

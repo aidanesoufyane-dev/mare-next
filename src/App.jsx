@@ -49,7 +49,7 @@ export default function Website() {
         .to('.hero-plate', { xPercent: -50, yPercent: -50, scale: 1, duration: .65, ease: 'power2.out' }, 1.15)
       heroChapters.forEach((chapter, i) => {
         const at = 1.7 + i * .78
-        hero.fromTo(chapter, { autoAlpha: 0, y: 32 }, { autoAlpha: 1, y: 0, duration: .2 }, at)
+        hero.fromTo(chapter, { xPercent: -50, yPercent: -50, autoAlpha: 0, y: 32 }, { xPercent: -50, yPercent: -50, autoAlpha: 1, y: 0, duration: .2 }, at)
           .to(chapter, { autoAlpha: 0, y: -30, duration: .2 }, at + .54)
           .to('.hero-plate__ceramic', { rotation: (i + 1) * 38, duration: .78, ease: 'power1.inOut' }, at)
       })
