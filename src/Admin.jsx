@@ -4,7 +4,7 @@ import { useEffect,useMemo,useState } from 'react'
 import { api } from './api'
 const slug='mare',tokenKey='mare-owner-token',statuses=['confirmed','completed','cancelled','no-show']
 export default function Admin(){
- const [token,setToken]=useState(()=>sessionStorage.getItem(tokenKey)||''),[view,setView]=useState('overview'),[menu,setMenu]=useState([]),[reservations,setReservations]=useState([]),[query,setQuery]=useState(''),[message,setMessage]=useState(''),[busy,setBusy]=useState(false)
+ const [token,setToken]=useState(()=>typeof window==='undefined'?'':window.sessionStorage.getItem(tokenKey)||''),[view,setView]=useState('overview'),[menu,setMenu]=useState([]),[reservations,setReservations]=useState([]),[query,setQuery]=useState(''),[message,setMessage]=useState(''),[busy,setBusy]=useState(false)
  const auth=(path,options={})=>api(path,{...options,headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`}})
  const load=async()=>{if(!token)return;setBusy(true);try{const [m,r]=await Promise.all([auth('/api/admin/mare/menu'),auth('/api/admin/mare/reservations')]);setMenu(m);setReservations(r);setMessage('')}catch(e){setMessage(e.message)}finally{setBusy(false)}}
  useEffect(()=>{if(!token)return;let active=true;Promise.all([api('/api/admin/mare/menu',{headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`}}),api('/api/admin/mare/reservations',{headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`}})]).then(([m,r])=>{if(!active)return;setMenu(m);setReservations(r);setMessage('')}).catch(error=>active&&setMessage(error.message)).finally(()=>active&&setBusy(false));return()=>{active=false}},[token])
