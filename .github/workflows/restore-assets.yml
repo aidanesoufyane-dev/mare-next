@@ -1,0 +1,30 @@
+name: Restore website assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/restore-assets.yml
+
+permissions:
+  contents: write
+
+jobs:
+  restore-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Restore media as regular Git files
+        run: |
+          git lfs pull
+          git rm .gitattributes .github/workflows/restore-assets.yml
+          git add --renormalize public/asstes
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Restore website assets"
+          git push origin main
