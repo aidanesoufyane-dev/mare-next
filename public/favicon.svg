@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MARÉ">
+  <rect width="64" height="64" rx="12" fill="#071a20"/>
+  <path fill="#f3efe7" d="M9 14h9l14 24 14-24h9v3h-4v30h4v3H40v-3h4V23L32 44 20 23v24h4v3H9v-3h4V17H9z"/>
+  <path d="M16 54c4-3 8-3 12 0s8 3 12 0 8-3 12 0" fill="none" stroke="#d95f3b" stroke-linecap="round" stroke-width="2.5"/>
+</svg>
